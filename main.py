@@ -131,7 +131,7 @@ class CreditCard(PaymentMethod):
             self.balance -= amount
             print(f"Payment of {amount} {self.currency} is successful")
         else:
-            raise ValueError("Not enough money")
+            raise NotImplementedError("Payment method not found")
 
 
 class BankTransfer(PaymentMethod):
@@ -145,7 +145,7 @@ class BankTransfer(PaymentMethod):
             self.balance -= amount
             print(f"Payment of {amount} {self.currency} is successful")
         else:
-            raise ValueError("Not enough money")
+            raise NotImplementedError("Payment method not found")
 
 
 class EWallet(PaymentMethod):
@@ -158,7 +158,7 @@ class EWallet(PaymentMethod):
             self.balance -= amount
             print(f"Payment of {amount} {self.currency} is successful")
         else:
-            raise ValueError("Not enough money")
+            raise NotImplementedError("Payment method not found")
 
 
 class PaymentProcessor:
@@ -174,7 +174,7 @@ class PaymentProcessor:
                 method.make_payment(amount)
                 break
         else:
-            raise ValueError("Invalid payment method")
+            raise NotImplementedError("Payment method not found")
 
 
 credit_card = CreditCard("Credit Card", "USD", 100, 100)
