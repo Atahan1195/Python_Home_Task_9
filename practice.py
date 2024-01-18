@@ -118,3 +118,29 @@ cat_1 = Cat("Blue", 3)
 print(cat_1)
 
 
+#############################################
+
+
+class AbstractValidator(ABC):
+
+    @abstractmethod
+    def validate(self, value):
+        ''
+
+
+class FalseValidator(AbstractValidator):
+
+    def __init__(self, text):
+        self.text = text
+
+    def __str__(self):
+        return self.text
+
+    def validate(self, value):
+        ...
+
+
+a = FalseValidator('Hello world!')
+print(a)
+
+
